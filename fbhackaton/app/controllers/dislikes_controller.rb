@@ -5,6 +5,8 @@ class DislikesController < ApplicationController
   # GET /dislikes.json
   def index
     @dislikes = Dislike.all
+    @descontento = Dislike.find(params[:dislike_id])
+
   end
 
   def quantity_up
@@ -19,6 +21,11 @@ class DislikesController < ApplicationController
   # GET /dislikes/1
   # GET /dislikes/1.json
   def show
+    @descontento = Dislike.find(params[:dislike_id])
+    repon_to do |format|
+      format.html
+      format.json{render :json => @descontento.to_json}
+    end
   end
 
   # GET /dislikes/new

@@ -1,1 +1,1 @@
-json.partial! "dislikes/dislike", dislike: @dislike
+json.(@descontento, :quantity)

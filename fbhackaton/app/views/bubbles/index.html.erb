@@ -12,8 +12,7 @@
 
               $('div').dblclick(function() {
 
-                  $(this).toggleClass('active');
-                  document.getElementById('quantity').innerHTML = "Quantity:" + descontento_quantity;
+                  $(this).toggleClass('div active');
 
                   $.ajax({
                               url: "/bubbles/up_quantity",
@@ -21,11 +20,18 @@
                               data: { dislike_id: <%=@descontento.id%>},
                           });
 
-                  $.get( "/bubbles/get_quantity.json", { dislike_id: <%=@descontento.id%> } )
-                  .done(function( data ) {
-                    var new_quantity = data["quantity"]
-                  });
-                  document.getElementById('quantity').innerHTML = "Quantity:" + new_quantity;
+                  $.ajax({
+                              url: "/dislikes",
+                              type: "GET",
+                              data: { dislike_id: <%=@descontento.id%>},
+                              dataType: "json",
+                              success: function(data) {
+                                var new_quantity = data.quantity;
+                                document.getElementById('quantity').innerHTML = "Quantity:" + new_quantity;
+
+                                  }
+                                });
+
 
 
               });
