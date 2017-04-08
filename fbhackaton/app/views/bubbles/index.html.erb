@@ -20,8 +20,12 @@
                               method: "POST",
                               data: { dislike_id: <%=@descontento.id%>},
                           });
-                  var descontento_quantity = <%= @descontento.quantity.to_i %>;
-                  document.getElementById('quantity').innerHTML = "Quantity:" + descontento_quantity;
+
+                  $.get( "/bubbles/get_quantity.json", { dislike_id: <%=@descontento.id%> } )
+                  .done(function( data ) {
+                    var new_quantity = data["quantity"]
+                  });
+                  document.getElementById('quantity').innerHTML = "Quantity:" + new_quantity;
 
 
               });
