@@ -1,0 +1,2 @@
+module DislikedsHelper
+end

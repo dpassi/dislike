@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dislikes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dislikes.each do |dislike| %>
+      <tr>
+        <td><%= dislike.name %></td>
+        <td><%= dislike.quantity %></td>
+        <td><%= dislike.user_id %></td>
+        <td><%= link_to 'Show', dislike %></td>
+        <td><%= link_to 'Edit', edit_dislike_path(dislike) %></td>
+        <td><%= link_to 'Destroy', dislike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dislike', new_dislike_path %>
