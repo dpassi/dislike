@@ -17,4 +17,18 @@ class BubblesController < ApplicationController
     @descontento.save
   end
 
+
+  def get_quantity
+    
+    @descontento = Dislike.find(putsarams[:dislike_id])
+
+    respond_to do |format|
+
+      # format.html show.html.erb
+      format.json { render json: @descontento }
+
+     end
+
+  end
+
 end
