@@ -7,6 +7,15 @@ class DislikesController < ApplicationController
     @dislikes = Dislike.all
   end
 
+  def quantity_up
+    @dislike = Dislike.find(params[:id])
+    @dislike['quantity'] +=1
+  end
+
+  def quantity_down
+    @dislike = Dislike.find(params[:id])
+    @dislike['quantity'] -=1
+  end
   # GET /dislikes/1
   # GET /dislikes/1.json
   def show

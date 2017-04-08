@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Bubble Click</title>
+
+
+        <%= include_gon %>
+
+        <script>
+
+          $(document).ready(function() {
+
+              $('div').dblclick(function() {
+
+                  $(this).toggleClass('active');
+                  document.getElementById('quantity').innerHTML = "Quantity:" + descontento_quantity;
+
+                  $.ajax({
+                              url: "/bubbles/up_quantity",
+                              method: "POST",
+                              data: { dislike_id: <%=@descontento.id%>},
+                          });
+                  var descontento_quantity = <%= @descontento.quantity.to_i %>;
+                  document.getElementById('quantity').innerHTML = "Quantity:" + descontento_quantity;
+
+
+              });
+          });
+
+
+
+        </script>
+
+        <style>
+        div {
+            height: 100px;
+            width: 100px;
+            border-radius: 5px;
+            background-color: blue;
+        }
+        .active{
+            background-color: lightblue;
+            height: 200px;
+            width: 200px;
+        }
+
+        </style>
+
+
+
+
+
+	</head>
+	<body>
+        <div></div>
+        <p> User name: <%= @nombre %> </p>
+        <p> Dislike: <%= @descontento.name %> </p>
+        <p id="quantity"> Quantity: <%= @descontento.quantity %> </p>
+
+
+</div>
+
+
+<a href="#" onclick="paintIt(this, '#990000')">Paint it red</a>
+	</body>
+</html>
