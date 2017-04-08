@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'main/show'
+  get 'main/map', to: "main#map"
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
