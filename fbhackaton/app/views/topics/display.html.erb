@@ -1,0 +1,85 @@
+<!--<% provide(:title, 'Topics') %>
+
+	<%@topics.each do |topic|%>
+		<% descript = topic.name + ": " + topic.description %>
+		<h2><%= link_to descript , topic_path(topic)%></h2>
+	<% end %>
+
+	<%= link_to "Add Topic", new_topic_path %>-->
+	<!--<% provide(:title, 'New Topic') %>
+	<div class="row">
+	    <div class="col-sm-6" style="text-align: left; margin-left:15px">
+	      <table class="table forum table-striped">
+	        <thead>
+	          <tr>
+	            <th class="cell-stat-2x hidden-xs hidden-sm">Topic</th>
+	            <th class="cell-stat-2x hidden-xs hidden-sm">Description</th>
+							<th class="cell-stat-2x hidden-xs hidden-sm">Votes</th>
+							<th class="cell-stat-2x hidden-xs hidden-sm">Twitter weight</th>
+	          </tr>
+	        </thead>
+
+	        <tbody>
+	          <% @topics.each do |topic| %>
+	            <tr>
+	              <td class="cell-stat-2x hidden-xs hidden-sm"><%= topic.name %></td>
+	              <td class="cell-stat-2x hidden-xs hidden-sm"><%= topic.description %></td>
+								<td class="cell-stat-2x hidden-xs hidden-sm"><%= topic.votes %></td>
+								<td class="cell-stat-2x hidden-xs hidden-sm"><%= topic.weight%></td>
+							</tr>
+	          <% end %>
+	        </tbody>
+	      </table>
+	    </div>
+	    <div class="col-sm-1"></div>
+	    <div class="col-sm-4">
+	      <h1>New Topic</h1>
+	    </div>
+	    <div class="col-sm-1"></div>
+	</div>-->
+<head>
+	<style>
+	th{
+    background-color: #292c41 ;
+    color: #FFFFFF ;
+  }
+  td{
+    background-color: #FFFFFF ;
+    color: #000000 ;
+  }
+	</style>
+</head>
+<body>
+	<table class="table forum table-inverse">
+	                <thead class="thead-inverse">
+	                  <tr>
+	                    <th class="cell-stat-2x hidden-xs hidden-sm">Ranking</th>
+	                    <th class="cell-stat-2x hidden-xs hidden-sm">Topic</th>
+	                    <th class="cell-stat-2x hidden-xs hidden-sm">Description</th>
+	                    <th class="cell-stat-2x hidden-xs hidden-sm">Dislikes</th>
+	                    <th class="cell-stat-2x hidden-xs hidden-sm">Twitter Weight</th>
+	                  </tr>
+	                </thead>
+
+	                <tbody>
+	                  <% count = 1%>
+	                  <% @topics.each do |topic| %>
+	                    <tr>
+	                      <td class="cell-stat-2x hidden-xs hidden-sm" >
+	                        <%= "#" + count.to_s %>
+	                        <% count += 1%>
+	                      </td>
+	                      <td class="cell-stat-2x hidden-xs hidden-sm" >
+	                        <%= topic.name%>
+	                      </td>
+	                      <td class="cell-stat-2x hidden-xs hidden-sm">
+	                        <%= topic.description %></td>
+	                      <td class="cell-stat-2x hidden-xs hidden-sm">
+	                          <%= topic.votes %></td>
+	                          <td class="cell-stat-2x hidden-xs hidden-sm">
+	                              <%= topic.weight %></td>
+	                    </tr>
+	                  <% end %>
+	                </tbody>
+	              </table>
+</body>

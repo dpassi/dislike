@@ -1,0 +1,6 @@
+<%= simple_form_for(@vote) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :user_id, collection: @users, label_method: :name, label_value: :id, include_blank: false, label: "Creator"%>
+  <%= f.input :topic_id, collection: @topics, label_method: :name, label_value: :id, include_blank: false, label: "Topic"%>
+  <%= f.button :submit, "Create Vote", :class => 'btn btn-success' %>
+<% end %>

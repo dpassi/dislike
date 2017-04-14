@@ -1,0 +1,33 @@
+<% provide(:title, 'Votes') %>
+<head>
+	<style>
+	th{
+    background-color: #292c41 ;
+    color: #FFFFFF ;
+  }
+  td{
+    background-color: #FFFFFF ;
+    color: #000000 ;
+  }
+	</style>
+</head>
+<body>
+	<div class="row">
+	    <div class="col-sm-6" style="text-align: left; margin-left:15px">
+	      <table class="table forum table-striped">
+					<tbody>
+						<th class="cell-stat-2x hidden-xs hidden-sm">Votes</th>
+	          <% @votes.each do |vote| %>
+	            <tr>
+								<td class="cell-stat-2x hidden-xs hidden-sm"><%=User.find(vote.user_id).name + " voted for " + Topic.find(vote.topic_id).name %></td>
+							</tr>
+	          <% end %>
+	        </tbody>
+	      </table>
+	    </div>
+	    <div class="col-sm-1"></div>
+	    <div class="col-sm-4">
+	    </div>
+	    <div class="col-sm-1"></div>
+	</div>
+</body>

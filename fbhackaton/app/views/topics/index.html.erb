@@ -1,0 +1,8 @@
+<% provide(:title, 'Topics') %>
+
+	<%@topics.each do |topic|%>
+		<% descript = topic.name + ": " + topic.description %>
+		<h2><%= link_to descript , topic_path(topic)%></h2>
+	<% end %>
+
+	<%= link_to "Add Topic", new_topic_path %>

@@ -1,0 +1,45 @@
+<% provide(:title, 'Home') %>
+<head>
+  <style>
+  body{
+      background: url('back.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      }
+  button {
+        background-color: #FFFFFF; /* Green */
+        border: none;
+        color: black;
+        font-weight: bold;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+  .divclass
+  {
+    position: fixed;
+    bottom: 28%;
+    left: 51%;
+}
+
+
+  </style>
+
+
+</head>
+
+
+<body>
+<div class="divclass">
+  <form action="/maps/show" method="get">
+  <button>See what people Dislike</button>
+</form>
+</div>
+</body>
